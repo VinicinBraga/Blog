@@ -1,11 +1,12 @@
 *{
   font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
+
+ 
 }
 
-$lightGreen: #b9e7e7;
+$lightYellow: #fec034;
+$ligthGray: #797979;
+ 
 
 .app {
   display: flex;
@@ -25,11 +26,11 @@ $lightGreen: #b9e7e7;
       align-items: center;
       justify-content: center;
       height: 100vh;
-      background-color: $lightGreen;
+      background-color: $lightYellow;
 
       h1 {
         font-size: 20px;
-        color: teal;
+        color: black;
         margin-bottom: 20px;
       }
 
@@ -44,13 +45,13 @@ $lightGreen: #b9e7e7;
         input {
           padding: 10px;
           border: none;
-          border-bottom: 1px solid gray;
+          border-bottom: 1px solid $ligthGray;
         }
 
         button {
           padding: 10px;
           border: none;
-          background-color: teal;
+          background-color: $ligthGray;
           cursor: pointer;
           color: white;
         }
@@ -95,7 +96,7 @@ $lightGreen: #b9e7e7;
           }
 
           .write {
-            background-color: $lightGreen;
+            background-color: $lightYellow;
             width: 50px;
             height: 50px;
             border-radius: 50%;
@@ -106,14 +107,194 @@ $lightGreen: #b9e7e7;
             border: 1px solid white;
 
             &:hover {
-              color: teal;
+              color: $ligthGray;
               background-color: white;
-              border: 1px solid teal;
+              border: 1px solid $ligthGray;
+            }
+          }
+        }
+      }
+    }
+
+    footer {
+      margin-top: 100px;
+      padding: 20px;
+      background-color: $lightYellow;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 12px;
+      img {
+        height: 50px;
+      }
+    }
+    .home {
+      .posts {
+        margin-top: 50px;
+        display: flex;
+        flex-direction: column;
+        gap: 150px;
+
+        .post {
+          display: flex;
+          gap: 100px;
+
+          &:nth-child(2n + 1) {
+            flex-direction: row-reverse;
+          }
+
+          .img {
+            flex: 2;
+            position: relative;
+
+            &::after {
+              content: "";
+              width: 100%;
+              height: 100%;
+              background-color: $lightYellow;
+              position: absolute;
+              top: 20px;
+              left: -20px;
+              z-index: -1;
+            }
+
+            img {
+              width: 100%;
+              max-height: 400px;
+              object-fit: cover;
+            }
+          }
+
+          .content {
+            flex: 3;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
+            h1 {
+              font-size: 48px;
+            }
+
+            p {
+              font-size: 18px;
+            }
+
+            button {
+              width: max-content;
+              padding: 10px 20px;
+              border: none;
+              cursor: pointer;
+              background-color: white;
+              border: 1px solid $ligthGray;
+              color: $ligthGray;
+
+              &:hover {
+                border: 1px solid white;
+                background-color: $lightYellow;
+                color: black;
+              }
+            }
+          }
+        }
+      }
+    }
+    single {
+      display: flex;
+      gap: 50px;
+
+      .content {
+        flex: 5;
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+
+        img {
+          width: 100%;
+          height: 300px;
+          object-fit: cover;
+        }
+
+        .user {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          font-size: 14px;
+          img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+          }
+
+          span {
+            font-weight: bold;
+          }
+        }
+
+        .edit {
+          display: flex;
+          gap: 5px;
+
+          img {
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+          }
+        }
+
+        h1 {
+          font-size: 42px;
+          color: #333;
+        }
+
+        p {
+          text-align: justify;
+          line-height: 30px;
+        }
+      }
+      .menu {
+        flex: 2;
+        display: flex;
+        flex-direction: column;
+        gap: 25px;
+
+        h1 {
+          font-size: 20px;
+          color: #555;
+        }
+
+        .post {
+          display: flex;
+          flex-direction: column;
+          gap: 10px;
+
+          img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+          }
+
+          h2 {
+            color: #555;
+          }
+
+          button {
+            width: max-content;
+            padding: 7.5px 15px;
+            border: none;
+            cursor: pointer;
+            color: $ligthGray;
+            background-color: white;
+            border: 1px solid $ligthGray;
+
+            &:hover {
+              border: 1px solid white;
+              background-color: $lightYellow;
+              color: black;
             }
           }
         }
       }
     }
   }
-
 }
