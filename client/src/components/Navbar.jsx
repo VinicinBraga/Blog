@@ -33,12 +33,12 @@ const Navbar = () => {
           <Link className="link" to="/?cat=food">
             <h6>FOOD</h6>
           </Link>
-          <span>{currentUser?.username}</span>
+          {currentUser ? <span>Hi {currentUser?.username}!</span> : null}
           {currentUser ? (
-            <span onClick={logout}>Logout</span>
+            <span onClick={logout}>LOGOUT</span>
           ) : (
             <Link className="link" to="/login">
-              Login
+              LOGIN
             </Link>
           )}
           <span className="write">
