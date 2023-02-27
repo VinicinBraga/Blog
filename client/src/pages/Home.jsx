@@ -1,8 +1,26 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
+import axios from "axios";
 
 const Home = () => {
-  const posts = [
+  const [posts, setPosts] = useState([]);
+
+  const cat = useLocation().search;
+  console.log(cat);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const res = await axios.get(`/posts${cat}`);
+        setPosts(res.data);
+      } catch (err) {
+        console.log(err);
+      }
+    };
+    fetchData();
+  }, [cat]);
+
+  /*   const posts = [
     {
       id: 1,
       title: "Lorem ipsum dolor sit amet consectetur adipisicing elit",
@@ -27,7 +45,7 @@ const Home = () => {
       desc: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. A possimus excepturi aliquid nihil cumque ipsam facere aperiam at! Ea dolorem ratione sit debitis deserunt repellendus numquam ab vel perspiciatis corporis!",
       img: "https://images.pexels.com/photos/6157049/pexels-photo-6157049.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2",
     },
-  ];
+  ]; */
 
   return (
     <div className="home">
